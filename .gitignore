@@ -1,0 +1,7 @@
+*.tar.gz
+*.pdf
+opencode-link.json
+.discord-webhook-url
+__pycache__/
+*.pyc
+.env

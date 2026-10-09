@@ -1,0 +1,8 @@
+{
+  "name": "opencode-link",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    "./server": "./index.js"
+  }
+}
