@@ -44,7 +44,7 @@ raspi-ai-agent-kit/
 │   ├── image-send/           成果物の画像送信
 │   ├── learning-diary/       学習ログの記録
 │   └── data-viz/             データ可視化（2D・3D・MATLAB/Octave/matplotlib・資料の逸脱禁止ルール付き）
-├── AGENTS.example.md         AIの行動ルールのテンプレート
+├── AGENTS.md                 AIの行動ルール（この名前のまま使う・opencodeが自動読込）
 └── LICENSE                   MIT License
 ```
 
@@ -57,7 +57,7 @@ raspi-ai-agent-kit/
 3. Zhipu GLMのAPIキーを取得（無料枠あり）して `~/.bashrc` に登録
 4. `opencode.json` を設定（テンプレートをコピー）
 5. Discordボットを作成しプラグインを設置
-6. `~/AGENTS.example.md` を `~/AGENTS.md` として配置し、AIのルールを定める
+6. `~/AGENTS.md` を配置（リポジトリ内のAGENTS.mdをホームへコピー）し、AIのルールを定める
 7. ホーム(~)から `opencode` を起動
 
 ## モデル構成（デフォルト）

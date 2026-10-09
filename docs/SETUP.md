@@ -134,7 +134,7 @@ nano ~/.discord-webhook-url
 
 ## ステップ9: AGENTS.mdの配置（最重要）
 ```bash
-cp ~/raspi-ai-agent-kit/AGENTS.example.md ~/AGENTS.md
+cp ~/raspi-ai-agent-kit/AGENTS.md ~/AGENTS.md
 ```
 ※ opencodeは起動フォルダ直下のAGENTS.mdを毎回自動読込する。ホームから起動するため ~/AGENTS.md が効く
 ※ 内容を編集して、あなたの用途に合わせたルールにしてください
