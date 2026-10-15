@@ -1,7 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "zhipu/glm-4.7-flash",
+  "model": "opencode/deepseek-v4.1-flash",
   "provider": {
+    "opencode": {
+      "name": "OpenCode Zen",
+      "models": {
+        "deepseek-v4.1-flash": {"name": "DeepSeek V4.1 Flash (Free・2026-10-15〜)"}
+      }
+    },
     "zhipu": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Zhipu GLM",
@@ -10,15 +16,9 @@
         "apiKey": "{env:ZHIPU_API_KEY}"
       },
       "models": {
-        "glm-4.7-flash": {
-          "name": "GLM-4.7-Flash (Free Text)"
-        },
-        "glm-4.6v-flash": {
-          "name": "GLM-4.6V-Flash (Free Multimodal)"
-        },
-        "glm-5.3-flash": {
-          "name": "GLM-5.3-Flash (Paid)"
-        }
+        "glm-4.6v-flash": {"name": "GLM-4.6V-Flash (Free Multimodal・画像用)"},
+        "glm-4.7-flash": {"name": "GLM-4.7-Flash (Free Text)"},
+        "glm-5.3-flash": {"name": "GLM-5.3-Flash (Paid)"}
       }
     }
   },

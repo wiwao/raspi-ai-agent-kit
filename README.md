@@ -54,16 +54,17 @@ raspi-ai-agent-kit/
 
 1. Raspberry Pi OS (64-bit) をmicroSDに書き込み起動
 2. opencodeをインストール
-3. Zhipu GLMのAPIキーを取得（無料枠あり）して `~/.bashrc` に登録
+3. `opencode auth login` でOpenCodeアカウントを接続（デフォルトモデル用・APIキー不要）
+   ※ 画像入力・有料GLMも使う場合のみ Zhipu GLMのAPIキーを取得して `~/.bashrc` に登録
 4. `opencode.json` を設定（テンプレートをコピー）
 5. Discordボットを作成しプラグインを設置
 6. `~/AGENTS.md` を配置（リポジトリ内のAGENTS.mdをホームへコピー）し、AIのルールを定める
 7. ホーム(~)から `opencode` を起動
 
-## モデル構成（デフォルト）
+## モデル構成（デフォルト・2026-10-15版）
 
-- **GLM-4.7-Flash**（テキスト・無料）— デフォルト
-- **GLM-4.6V-Flash**（マルチモーダル・無料）— 画像用。TUIの `/models` で切替
+- **DeepSeek V4.1 Flash**（テキスト・無料）— デフォルト（OpenCode Zen経由・2026-10-15から無料）
+- **GLM-4.6V-Flash**（マルチモーダル・無料）— 画像用。TUIの `/models` で切替（要ZHIPU_API_KEY）
 - **GLM-5.3-Flash**（有料）— 高性能用。課金登録後に1行変更で切替
 
 他社API（OpenAI互換）にも `opencode.json.template` の `baseURL` と `models` を書き換えるだけで対応できます。

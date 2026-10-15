@@ -53,10 +53,15 @@ sudo apt install octave -y   # MATLAB互換の3Dプロットも使う場合
 ```
 ※ MATLAB本体は有償ライセンス製品でラズパイでは動作しません。ラズパイ上ではOctave（MATLAB互換・無料）かmatplotlibを使います
 
-## ステップ4: APIキーの登録
-1. LLMプロバイダのアカウントを作成し、APIキーをコピー
-   （この手順書のデフォルトは Zhipu GLM: https://open.bigmodel.cn）
-2. キーを環境変数に登録（ファイルへの直書きはしない）:
+## ステップ4: LLMアカウントの接続（2026-10-15版: DeepSeek V4.1 Flash・無料）
+1. デフォルトモデルは **DeepSeek V4.1 Flash**（OpenCode Zen経由・無料・2026-10-15〜）です
+2. OpenCodeアカウントを接続（1回だけ・ブラウザ認証）:
+```bash
+opencode auth login
+```
+   → 一覧から **OpenCode** を選択してブラウザ認証を済ませる（APIキー登録不要）
+3. 画像入力や有料GLMも使う場合のみ、Zhipu GLMのAPIキーを登録（任意）:
+   https://open.bigmodel.cn で取得 → 環境変数へ（ファイル直書き禁止）:
 ```bash
 echo 'export ZHIPU_API_KEY="★APIキー★"' >> ~/.bashrc
 source ~/.bashrc
@@ -72,8 +77,14 @@ cp ~/raspi-ai-agent-kit/docs/opencode.json.template ~/.config/opencode/opencode.
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "zhipu/glm-4.7-flash",
+  "model": "opencode/deepseek-v4.1-flash",
   "provider": {
+    "opencode": {
+      "name": "OpenCode Zen",
+      "models": {
+        "deepseek-v4.1-flash": {"name": "DeepSeek V4.1 Flash (Free・2026-10-15〜)"}
+      }
+    },
     "zhipu": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Zhipu GLM",
@@ -82,8 +93,8 @@ cp ~/raspi-ai-agent-kit/docs/opencode.json.template ~/.config/opencode/opencode.
         "apiKey": "{env:ZHIPU_API_KEY}"
       },
       "models": {
+        "glm-4.6v-flash": {"name": "GLM-4.6V-Flash (Free Multimodal・画像用)"},
         "glm-4.7-flash": {"name": "GLM-4.7-Flash (Free Text)"},
-        "glm-4.6v-flash": {"name": "GLM-4.6V-Flash (Free Multimodal)"},
         "glm-5.3-flash": {"name": "GLM-5.3-Flash (Paid)"}
       }
     }
@@ -92,8 +103,9 @@ cp ~/raspi-ai-agent-kit/docs/opencode.json.template ~/.config/opencode/opencode.
 }
 ```
 ※ `permission: {question: deny}` は必ず残す（Discord運用でセッション停止を防ぐ）
-※ 有料モデルへの切替: `"model"` の行を `"zhipu/glm-5.3-flash"` に変更（課金登録後）
-※ 画像用への切替: TUIで `/models` → `glm-4.6v-flash`
+※ デフォルトの **DeepSeek V4.1 Flash はテキスト専用**です。画像を読ませる場合は TUIで `/models` → `zhipu/glm-4.6v-flash` に切替（要ZHIPU_API_KEY）
+※ 有料GLMへの切替: `"model"` の行を `"zhipu/glm-5.3-flash"` に変更（課金登録後）
+※ DeepSeek側の無料枠は提供側の都合で変わる可能性があります（出典: OpenCode公式X 2026-10-15「DeepSeek V4.1 Flash is now free in OpenCode」）
 
 ## ステップ6: プラグイン設置（★失敗しない配置）
 ```bash
