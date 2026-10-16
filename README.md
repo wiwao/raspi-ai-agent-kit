@@ -63,7 +63,7 @@ raspi-ai-agent-kit/
 
 ## モデル構成（デフォルト・2026-10-15版）
 
-- **DeepSeek V4.1 Flash**（テキスト・無料）— デフォルト（OpenCode Zen経由・2026-10-15から無料）
+- **GLM 5.3 Flash**（テキスト・無料・200k context）— デフォルト（OpenCode Zen経由・2026-10-16から無料）
 - **GLM-4.6V-Flash**（マルチモーダル・無料）— 画像用。TUIの `/models` で切替（要ZHIPU_API_KEY）
 - **GLM-5.3-Flash**（有料）— 高性能用。課金登録後に1行変更で切替
 

@@ -54,7 +54,7 @@ sudo apt install octave -y   # MATLAB互換の3Dプロットも使う場合
 ※ MATLAB本体は有償ライセンス製品でラズパイでは動作しません。ラズパイ上ではOctave（MATLAB互換・無料）かmatplotlibを使います
 
 ## ステップ4: LLMアカウントの接続（2026-10-15版: DeepSeek V4.1 Flash・無料）
-1. デフォルトモデルは **DeepSeek V4.1 Flash**（OpenCode Zen経由・無料・2026-10-15〜）です
+1. デフォルトモデルは **GLM 5.3 Flash**（OpenCode Zen経由・無料・2026-10-16〜・200k context）です
 2. OpenCodeアカウントを接続（1回だけ・ブラウザ認証）:
 ```bash
 opencode auth login
@@ -77,7 +77,7 @@ cp ~/raspi-ai-agent-kit/docs/opencode.json.template ~/.config/opencode/opencode.
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/deepseek-v4.1-flash",
+  "model": "opencode/glm-5.3-flash-free",
   "provider": {
     "opencode": {
       "name": "OpenCode Zen",
